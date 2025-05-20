@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectos.tricountv2.controlador.AddGastoController">
+   <children>
+      <Button defaultButton="true" layoutX="153.0" layoutY="236.0" mnemonicParsing="false" onAction="#addGasto" text="Añadir gasto" />
+      <Button layoutX="283.0" layoutY="236.0" mnemonicParsing="false" onAction="#cargarGastos" text="Ver gastos" />
+      <Label layoutX="134.0" layoutY="108.0" text="Asunto" />
+      <TextField fx:id="txtAsunto" layoutX="244.0" layoutY="104.0" />
+      <TextField fx:id="txtImporte" layoutX="244.0" layoutY="139.0" />
+      <Label layoutX="134.0" layoutY="143.0" text="Importe en euros" />
+      <Label layoutX="61.0" layoutY="45.0" text="Añadir gasto">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="cbPersona" layoutX="244.0" layoutY="178.0" prefWidth="150.0" />
+      <Label layoutX="139.0" layoutY="182.0" text="Persona" />
+      <Label fx:id="txtResultado" layoutX="61.0" layoutY="288.0" />
+   </children>
+</AnchorPane>

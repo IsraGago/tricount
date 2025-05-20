@@ -1,0 +1,11 @@
+# Archivos de configuración del IDE
+.vscode/
+
+# Archivos de compilación
+*.class
+bin/
+
+# Archivos de IntelliJ
+DAM1-24-25-GAIB.iml
+.idea/
+out/
