@@ -1,5 +1,6 @@
 package tricount.controlador;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -9,6 +10,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import tricount.AppTricount;
 import tricount.modelo.Persona;
 
@@ -89,6 +92,20 @@ public class PersonasController implements Initializable {
             return;
         }
         AppTricount.mostrarMensaje("Deudas", Persona.finalizar(AppTricount.personas));
+    }
+
+    @FXML
+    void guardarDeudasTexto(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Guardar como...");
+        fileChooser.setInitialDirectory(new File(AppTricount.PATH));
+        fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"));
+
+        File selectedFile = fileChooser.showSaveDialog(AppTricount.primaryStage);
+        if (selectedFile != null) {
+            AppTricount.guardarFichero(selectedFile.toString());
+
+        }
     }
 
 }

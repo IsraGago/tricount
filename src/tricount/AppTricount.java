@@ -1,5 +1,12 @@
 package tricount;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.NotSerializableException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +22,10 @@ import tricount.modelo.Persona;
 
 public class AppTricount extends Application {
 
-    static Stage primaryStage;
+    public static Stage primaryStage;
     public static List<Persona> personas = new ArrayList<>();
     public static List<Gasto> gastos = getGastos();
+    public static final String PATH = "./src/saves/";
 
     public static List<Gasto> getGastos() {
         List<Gasto> gastos = new ArrayList<>();
@@ -87,6 +95,15 @@ public class AppTricount extends Application {
                     "El importe no tiene un formato válido. Ejempo: 59.99");
         }
         return importe;
+    }
+
+static public void guardarFichero(String path) {
+        // Crear un fichero de texto para escritura
+        try (BufferedWriter out = new BufferedWriter(new FileWriter(path))) {
+            out.write(Persona.finalizar(personas));
+        } catch (Exception e) {
+            System.out.println("Error de E/S");
+        }
     }
 
     

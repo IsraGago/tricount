@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectos.tricountv2.controlador.AddGastoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tricount.controlador.AddGastoController">
    <children>
       <Button defaultButton="true" layoutX="153.0" layoutY="236.0" mnemonicParsing="false" onAction="#addGasto" text="Añadir gasto" />
       <Button layoutX="283.0" layoutY="236.0" mnemonicParsing="false" onAction="#cargarGastos" text="Ver gastos" />
