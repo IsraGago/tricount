@@ -1,0 +1,166 @@
+/* Fondo del panel central */
+.anchor-pane {
+    -fx-background-color: #121212;
+}
+
+/* Título principal */
+.titulo {
+    -fx-text-fill: white;
+    -fx-font-size: 21px;
+    -fx-font-weight: bold;
+}
+
+/* Etiquetas de campos */
+.etiqueta-campo {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+/* Campo de texto personalizado */
+.campo-texto {
+    -fx-background-color: #000000;
+    -fx-text-fill: white;
+    -fx-border-color: #2196F3;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 6 12 6 12;
+    -fx-font-size: 13px;
+}
+
+/* ListView */
+/* .lista-personas {
+    -fx-background-color: #1e1e1e;
+    -fx-text-fill: white;
+    -fx-border-color: #2196F3;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+} */
+
+.list-view {
+    -fx-background-color: #121212; /* Fondo negro oscuro */
+    -fx-control-inner-background: #121212;
+    -fx-text-fill: white;
+    -fx-border-color: #264de4; /* borde azul para la tabla */
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-padding: 2;
+}
+
+.list-view .list-cell {
+    -fx-background-color: #1e1e1e; /* ligeramente más claro para las celdas */
+    -fx-text-fill: white;
+    -fx-border-color: transparent transparent #333333 transparent; /* línea inferior gris oscura */
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 6 10 6 10; /* espacio interno */
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: #264de4; /* azul seleccionado */
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+
+.list-view .list-cell:focused:selected {
+    -fx-background-color: #1a3ccc; /* azul un poco más oscuro al foco */
+    -fx-text-fill: white;
+}
+
+.list-view .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+
+/* Botón unificado */
+.button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 8 16 8 16;
+    -fx-effect: dropshadow(gaussian, #00000088, 2, 0.5, 0, 1);
+}
+
+/* Hover */
+.button:hover {
+    -fx-background-color: #1976D2;
+}
+
+/* MenuBar */
+.menu-bar {
+    -fx-background-color: #1c1c1c;
+    -fx-border-color: #2196F3;
+    -fx-border-width: 0 0 2px 0;
+}
+
+.menu, .menu-item {
+    -fx-text-fill: red;
+}
+
+.menu-bar .label {
+    -fx-text-fill: white; /* texto blanco en menú principal */
+}
+
+.menu {
+    -fx-text-fill: white; /* texto blanco menú desplegable */
+}
+
+.menu:hover, .menu:focused {
+    -fx-background-color: #2196F3; /* azul hover */
+    -fx-text-fill: white;
+}
+
+.context-menu {
+    -fx-background-color: #1c1c1c;
+}
+
+.context-menu .menu-item {
+    -fx-text-fill: white; /* texto blanco ítems */
+    -fx-background-color: #1c1c1c;
+}
+
+.context-menu .menu-item:hover {
+    -fx-background-color: #2196F3; /* azul hover ítems */
+    -fx-text-fill: white;
+}
+
+.context-menu .menu-item:focused {
+    -fx-background-color: #2196F3; /* azul más oscuro foco */
+    -fx-text-fill: white;
+}
+
+.choice-box {
+    -fx-background-color: #121212; /* fondo negro */
+    -fx-border-color: #264de4; /* borde azul */
+    -fx-border-radius: 4;
+    -fx-padding: 4 10 4 10;
+    -fx-text-fill: white; /* esto no siempre afecta, por eso el siguiente */
+}
+
+.choice-box .label {
+    -fx-text-fill: white; /* texto blanco para el valor seleccionado */
+    -fx-background-color: transparent;
+}
+
+.choice-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.choice-box .arrow {
+    -fx-background-color: white; /* para que la flecha también se vea bien */
+}
+
+.choice-box .list-cell {
+    -fx-background-color: #1e1e1e; /* fondo oscuro para la lista */
+    -fx-text-fill: white; /* texto blanco en opciones */
+}
+
+.choice-box .list-cell:hover {
+    -fx-background-color: #264de4; /* azul hover */
+    -fx-text-fill: white;
+}
+
+

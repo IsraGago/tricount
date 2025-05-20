@@ -1,12 +1,12 @@
 package tricount;
 
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+// import java.io.FileNotFoundException;
+// import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.NotSerializableException;
-import java.io.ObjectOutputStream;
+// import java.io.IOException;
+// import java.io.NotSerializableException;
+// import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +33,6 @@ public class AppTricount extends Application {
             for (Gasto g : p.gastos) {
                 gastos.add(g);
             }
-
         }
         return gastos;
     }
