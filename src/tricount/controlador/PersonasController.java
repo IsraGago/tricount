@@ -44,9 +44,21 @@ public class PersonasController implements Initializable {
         Persona p = new Persona(txtNombre.getText());
 
         if (lstPersonas.getItems().contains(p)) {
-            lstPersonas.getItems().remove(p);
-            AppTricount.personas.remove(p);
-            txtNombre.setText("");
+            for (Persona persona : lstPersonas.getItems()) {
+                if (persona.equals(p)) {
+                    p = persona;
+                }
+            }
+            if (p.getDineroAportado() <= 0) {
+                lstPersonas.getItems().remove(p);
+                AppTricount.personas.remove(p);
+                txtNombre.setText("");
+            } else {
+                AppTricount.mostrarError("No se ha podido borrar a la persona",
+                        "La persona " + txtNombre.getText()
+                                + " tiene gastos a su nombre, si quiere borrarla debe eliminar los gatos o asignarlos a otra persona.");
+            }
+
         } else {
             AppTricount.mostrarError("No se ha podido borrar a la persona",
                     "La persona " + txtNombre.getText() + " no está en la lista.");
@@ -55,6 +67,9 @@ public class PersonasController implements Initializable {
 
     @FXML
     void insertarUsuario(ActionEvent event) {
+        if (txtNombre.getText().isEmpty()) {
+            return;
+        }
         Persona p = new Persona(txtNombre.getText());
         if (!lstPersonas.getItems().contains(p)) {
             AppTricount.personas.add(p);
@@ -74,7 +89,7 @@ public class PersonasController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+
         lstPersonas.getItems().addAll(AppTricount.personas);
 
         lstPersonas.getSelectionModel().selectedItemProperty()
