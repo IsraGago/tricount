@@ -2,6 +2,7 @@ package tricount.controlador;
 
 import java.io.File;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import tricount.AppTricount;
+import tricount.Util;
 import tricount.modelo.Persona;
 
 public class PersonasController implements Initializable {
@@ -97,14 +99,45 @@ public class PersonasController implements Initializable {
     @FXML
     void guardarDeudasTexto(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Guardar como...");
+        fileChooser.setTitle("Guardar deudas como...");
         fileChooser.setInitialDirectory(new File(AppTricount.PATH));
         fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"));
 
         File selectedFile = fileChooser.showSaveDialog(AppTricount.primaryStage);
         if (selectedFile != null) {
-            AppTricount.guardarFichero(selectedFile.toString());
+            AppTricount.guardarDeudasFichero(selectedFile.toString());
 
+        }
+    }
+
+    @FXML
+    void abrirActividad(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Importar JSON...");
+        fileChooser.setInitialDirectory(new File(AppTricount.PATH));
+        fileChooser.getExtensionFilters().addAll(
+                new ExtensionFilter("JSON Files", "*.json"));
+
+        File selectedFile = fileChooser.showOpenDialog(AppTricount.primaryStage);
+        if (selectedFile != null) {
+            Persona[] t = Util.importarArrayJson(selectedFile.toString(), Persona[].class);
+            AppTricount.personas.clear();
+            AppTricount.personas.addAll(List.of(t));
+            lstPersonas.getItems().clear();
+            lstPersonas.getItems().addAll(AppTricount.personas);
+        }
+    }
+
+    @FXML
+    void guardarActividad(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Guardar actividad como...");
+        fileChooser.setInitialDirectory(new File(AppTricount.PATH));
+        fileChooser.getExtensionFilters().addAll(new ExtensionFilter("JSON Files", "*.json"));
+        File selectedFile = fileChooser.showSaveDialog(AppTricount.primaryStage);
+        if (selectedFile != null) {
+            Persona[] t = AppTricount.personas.toArray(new Persona[0]);
+            Util.exportararArrayJson(selectedFile.toString(), t);
         }
     }
 

@@ -37,7 +37,6 @@ public class AppTricount extends Application {
         return gastos;
     }
 
-
     public static void main(String[] args) {
         launch();
     }
@@ -96,7 +95,7 @@ public class AppTricount extends Application {
         return importe;
     }
 
-static public void guardarFichero(String path) {
+    static public void guardarDeudasFichero(String path) {
         // Crear un fichero de texto para escritura
         try (BufferedWriter out = new BufferedWriter(new FileWriter(path))) {
             out.write(Persona.finalizar(personas));
@@ -105,5 +104,5 @@ static public void guardarFichero(String path) {
         }
     }
 
-    
+
 }
