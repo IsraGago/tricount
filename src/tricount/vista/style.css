@@ -38,31 +38,35 @@
 } */
 
 .list-view {
-    -fx-background-color: #121212; /* Fondo negro oscuro */
+    -fx-background-color: #121212;
+    /* Fondo negro oscuro */
     -fx-control-inner-background: #121212;
     -fx-text-fill: white;
-    -fx-border-color: #264de4; /* borde azul para la tabla */
+    -fx-border-color: #264de4;
+    /* borde azul para la tabla */
     -fx-border-width: 1;
     -fx-border-radius: 4;
     -fx-padding: 2;
 }
 
 .list-view .list-cell {
-    -fx-background-color: #1e1e1e; /* ligeramente más claro para las celdas */
+    -fx-background-color: #1e1e1e;
     -fx-text-fill: white;
-    -fx-border-color: transparent transparent #333333 transparent; /* línea inferior gris oscura */
+    -fx-border-color: transparent transparent #333333 transparent;
     -fx-border-width: 0 0 1 0;
-    -fx-padding: 6 10 6 10; /* espacio interno */
+    -fx-padding: 6 10 6 10;
 }
 
 .list-view .list-cell:selected {
-    -fx-background-color: #264de4; /* azul seleccionado */
+    -fx-background-color: #264de4;
+    /* azul seleccionado */
     -fx-text-fill: white;
     -fx-border-color: transparent;
 }
 
 .list-view .list-cell:focused:selected {
-    -fx-background-color: #1a3ccc; /* azul un poco más oscuro al foco */
+    -fx-background-color: #1a3ccc;
+    /* azul un poco más oscuro al foco */
     -fx-text-fill: white;
 }
 
@@ -96,20 +100,25 @@
     -fx-border-width: 0 0 2px 0;
 }
 
-.menu, .menu-item {
+.menu,
+.menu-item {
     -fx-text-fill: red;
 }
 
 .menu-bar .label {
-    -fx-text-fill: white; /* texto blanco en menú principal */
+    -fx-text-fill: white;
+    /* texto blanco en menú principal */
 }
 
 .menu {
-    -fx-text-fill: white; /* texto blanco menú desplegable */
+    -fx-text-fill: white;
+    /* texto blanco menú desplegable */
 }
 
-.menu:hover, .menu:focused {
-    -fx-background-color: #2196F3; /* azul hover */
+.menu:hover,
+.menu:focused {
+    -fx-background-color: #2196F3;
+    /* azul hover */
     -fx-text-fill: white;
 }
 
@@ -118,30 +127,37 @@
 }
 
 .context-menu .menu-item {
-    -fx-text-fill: white; /* texto blanco ítems */
+    -fx-text-fill: white;
+    /* texto blanco ítems */
     -fx-background-color: #1c1c1c;
 }
 
 .context-menu .menu-item:hover {
-    -fx-background-color: #2196F3; /* azul hover ítems */
+    -fx-background-color: #2196F3;
+    /* azul hover ítems */
     -fx-text-fill: white;
 }
 
 .context-menu .menu-item:focused {
-    -fx-background-color: #2196F3; /* azul más oscuro foco */
+    -fx-background-color: #2196F3;
+    /* azul más oscuro foco */
     -fx-text-fill: white;
 }
 
 .choice-box {
-    -fx-background-color: #121212; /* fondo negro */
-    -fx-border-color: #264de4; /* borde azul */
+    -fx-background-color: #121212;
+    /* fondo negro */
+    -fx-border-color: #264de4;
+    /* borde azul */
     -fx-border-radius: 4;
     -fx-padding: 4 10 4 10;
-    -fx-text-fill: white; /* esto no siempre afecta, por eso el siguiente */
+    -fx-text-fill: white;
+    /* esto no siempre afecta, por eso el siguiente */
 }
 
 .choice-box .label {
-    -fx-text-fill: white; /* texto blanco para el valor seleccionado */
+    -fx-text-fill: white;
+    /* texto blanco para el valor seleccionado */
     -fx-background-color: transparent;
 }
 
@@ -150,17 +166,19 @@
 }
 
 .choice-box .arrow {
-    -fx-background-color: white; /* para que la flecha también se vea bien */
+    -fx-background-color: white;
+    /* para que la flecha también se vea bien */
 }
 
 .choice-box .list-cell {
-    -fx-background-color: #1e1e1e; /* fondo oscuro para la lista */
-    -fx-text-fill: white; /* texto blanco en opciones */
+    -fx-background-color: #1e1e1e;
+    /* fondo oscuro para la lista */
+    -fx-text-fill: white;
+    /* texto blanco en opciones */
 }
 
 .choice-box .list-cell:hover {
-    -fx-background-color: #264de4; /* azul hover */
+    -fx-background-color: #264de4;
+    /* azul hover */
     -fx-text-fill: white;
 }
-
-

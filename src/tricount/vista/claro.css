@@ -1,0 +1,155 @@
+/* Fondo del panel central */
+.anchor-pane {
+    -fx-background-color: #ffffff;
+    /* blanco */
+}
+
+/* Título principal */
+.titulo {
+    -fx-text-fill: #5e35b1;
+    /* violeta azulado fuerte */
+    -fx-font-size: 21px;
+    -fx-font-weight: bold;
+}
+
+/* Etiquetas de campos */
+.etiqueta-campo {
+    -fx-text-fill: #5e35b1;
+    -fx-font-size: 14px;
+}
+
+/* Campo de texto personalizado */
+.campo-texto {
+    -fx-background-color: #f9f9f9;
+    -fx-text-fill: #000000;
+    -fx-border-color: #7e57c2;
+    /* violeta azulado más suave */
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 6 12 6 12;
+    -fx-font-size: 13px;
+}
+
+/* ListView */
+.list-view {
+    -fx-background-color: #ffffff;
+    -fx-control-inner-background: #ffffff;
+    -fx-text-fill: #000000;
+    -fx-border-color: #7e57c2;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-padding: 2;
+}
+
+.list-view .list-cell {
+    -fx-background-color: #f1f1f1;
+    -fx-text-fill: #000000;
+    -fx-border-color: transparent transparent #f0eeee transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 6 10 6 10;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: #7e57c2;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+
+.list-view .list-cell:focused:selected {
+    -fx-background-color: #5e35b1;
+    -fx-text-fill: white;
+}
+
+.list-view .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+/* Botón unificado */
+.button {
+    -fx-background-color: #5e35b1;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 8 16 8 16;
+    -fx-effect: dropshadow(gaussian, #00000033, 2, 0.5, 0, 1);
+}
+
+.button:hover {
+    -fx-background-color: #4527a0;
+}
+
+/* MenuBar */
+.menu-bar {
+    -fx-background-color: #eeeeee;
+    -fx-border-color: #7e57c2;
+    -fx-border-width: 0 0 2px 0;
+}
+
+.menu-bar .label {
+    -fx-text-fill: #5e35b1;
+}
+
+.menu {
+    -fx-text-fill: #5e35b1;
+}
+
+.menu:hover,
+.menu:focused {
+    -fx-background-color: #d1c4e9;
+    -fx-text-fill: #5e35b1;
+}
+
+.context-menu {
+    -fx-background-color: #ffffff;
+}
+
+.context-menu .menu-item {
+    -fx-text-fill: #5e35b1;
+    -fx-background-color: #ffffff;
+}
+
+.context-menu .menu-item:hover {
+    -fx-background-color: #d1c4e9;
+    -fx-text-fill: #5e35b1;
+}
+
+.context-menu .menu-item:focused {
+    -fx-background-color: #b39ddb;
+    -fx-text-fill: white;
+}
+
+/* ChoiceBox */
+.choice-box {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #7e57c2;
+    -fx-border-radius: 4;
+    -fx-padding: 4 10 4 10;
+    -fx-text-fill: #000000;
+}
+
+.choice-box .label {
+    -fx-text-fill: #000000;
+    -fx-background-color: transparent;
+}
+
+.choice-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.choice-box .arrow {
+    -fx-background-color: #5e35b1;
+}
+
+.choice-box .list-cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+
+.choice-box .list-cell:hover {
+    -fx-background-color: #d1c4e9;
+    -fx-text-fill: #5e35b1;
+}

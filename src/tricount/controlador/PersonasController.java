@@ -1,18 +1,24 @@
 package tricount.controlador;
 
-import java.io.File;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Stage;
 import tricount.AppTricount;
 import tricount.Util;
 import tricount.modelo.Persona;
@@ -139,6 +145,39 @@ public class PersonasController implements Initializable {
             Persona[] t = AppTricount.personas.toArray(new Persona[0]);
             Util.exportararArrayJson(selectedFile.toString(), t);
         }
+    }
+
+    @FXML
+    void establecerModoClaro(ActionEvent event) {
+        
+        //TODO CAMBIAR ENTRE MODO CLARO Y OSCURO
+
+        Scene scene = AppTricount.primaryStage.getScene();
+        // scene.getStylesheets().clear();
+        // scene.getStylesheets().add(getClass().getResource("/tricount/vista/claro.css").toExternalForm());
+
+        Path path = Paths.get("src/tricount/vista/claro.css");
+        File file = path.toFile();
+
+        if (file.exists()) {
+            scene.getStylesheets().clear();
+            scene.getStylesheets().add(file.toURI().toString());
+            System.out.println(file.toURI().toString());
+        } else {
+            System.out.println("No se encontró el archivo: " + file.getAbsolutePath());
+        }
+
+
+        System.out.println("modo claro");
+
+    }
+
+    @FXML
+    void establecerModoOscuro(ActionEvent event) {
+        Scene scene = AppTricount.primaryStage.getScene();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(getClass().getResource("/tricount/vista/style.css").toExternalForm());
+        System.out.println("modo oscuro");
     }
 
 }
