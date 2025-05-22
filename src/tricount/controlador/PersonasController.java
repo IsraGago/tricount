@@ -5,22 +5,18 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
-import javafx.stage.Stage;
+import saves.deudas.Util;
 import tricount.AppTricount;
-import tricount.Util;
 import tricount.modelo.Persona;
 
 public class PersonasController implements Initializable {
@@ -78,6 +74,7 @@ public class PersonasController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
         lstPersonas.getItems().addAll(AppTricount.personas);
 
         lstPersonas.getSelectionModel().selectedItemProperty()
@@ -106,7 +103,7 @@ public class PersonasController implements Initializable {
     void guardarDeudasTexto(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Guardar deudas como...");
-        fileChooser.setInitialDirectory(new File(AppTricount.PATH));
+        fileChooser.setInitialDirectory(new File(AppTricount.PATH + "/deudas/"));
         fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"));
 
         File selectedFile = fileChooser.showSaveDialog(AppTricount.primaryStage);
@@ -120,7 +117,7 @@ public class PersonasController implements Initializable {
     void abrirActividad(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Importar JSON...");
-        fileChooser.setInitialDirectory(new File(AppTricount.PATH));
+        fileChooser.setInitialDirectory(new File(AppTricount.PATH + "/actividades/"));
         fileChooser.getExtensionFilters().addAll(
                 new ExtensionFilter("JSON Files", "*.json"));
 
@@ -138,7 +135,7 @@ public class PersonasController implements Initializable {
     void guardarActividad(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Guardar actividad como...");
-        fileChooser.setInitialDirectory(new File(AppTricount.PATH));
+        fileChooser.setInitialDirectory(new File(AppTricount.PATH + "/actividades/"));
         fileChooser.getExtensionFilters().addAll(new ExtensionFilter("JSON Files", "*.json"));
         File selectedFile = fileChooser.showSaveDialog(AppTricount.primaryStage);
         if (selectedFile != null) {
@@ -149,35 +146,17 @@ public class PersonasController implements Initializable {
 
     @FXML
     void establecerModoClaro(ActionEvent event) {
-        
-        //TODO CAMBIAR ENTRE MODO CLARO Y OSCURO
-
-        Scene scene = AppTricount.primaryStage.getScene();
-        // scene.getStylesheets().clear();
-        // scene.getStylesheets().add(getClass().getResource("/tricount/vista/claro.css").toExternalForm());
-
-        Path path = Paths.get("src/tricount/vista/claro.css");
-        File file = path.toFile();
-
-        if (file.exists()) {
-            scene.getStylesheets().clear();
-            scene.getStylesheets().add(file.toURI().toString());
-            System.out.println(file.toURI().toString());
-        } else {
-            System.out.println("No se encontró el archivo: " + file.getAbsolutePath());
-        }
-
-
-        System.out.println("modo claro");
+        String css = getClass().getResource(AppTricount.MODO_CLARO_PATH).toExternalForm();
+        AppTricount.cambiarModo(css);
+        Util.writeStringToFile("claro", AppTricount.PATH + "config.txt");
 
     }
 
     @FXML
     void establecerModoOscuro(ActionEvent event) {
-        Scene scene = AppTricount.primaryStage.getScene();
-        scene.getStylesheets().clear();
-        scene.getStylesheets().add(getClass().getResource("/tricount/vista/style.css").toExternalForm());
-        System.out.println("modo oscuro");
+        String css = getClass().getResource(AppTricount.MODO_OSCURO_PATH).toExternalForm();
+        AppTricount.cambiarModo(css);
+        Util.writeStringToFile("oscuro", AppTricount.PATH + "config.txt");
     }
 
 }

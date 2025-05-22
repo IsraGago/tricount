@@ -1,12 +1,7 @@
 package tricount;
 
 import java.io.BufferedWriter;
-// import java.io.FileNotFoundException;
-// import java.io.FileOutputStream;
 import java.io.FileWriter;
-// import java.io.IOException;
-// import java.io.NotSerializableException;
-// import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import saves.deudas.Util;
 import tricount.modelo.Gasto;
 import tricount.modelo.Persona;
 
@@ -26,6 +22,8 @@ public class AppTricount extends Application {
     public static List<Persona> personas = new ArrayList<>();
     public static List<Gasto> gastos = getGastos();
     public static final String PATH = "./src/saves/";
+    public static final String MODO_OSCURO_PATH = "/tricount/vista/oscuro.css";
+    public static final String MODO_CLARO_PATH = "/tricount/vista/claro.css";
 
     public static List<Gasto> getGastos() {
         List<Gasto> gastos = new ArrayList<>();
@@ -52,16 +50,16 @@ public class AppTricount extends Application {
 
     public static void cargarEscena(String fxml) {
         try {
-            // Cargar la nueva ventana
             FXMLLoader loader = new FXMLLoader(AppTricount.class.getResource("vista/" + fxml + ".fxml"));
             Parent root = loader.load();
-
-            // Crear una nueva escena
             Scene scene = new Scene(root);
 
-            // Cambiar la escena
-            primaryStage.setScene(scene);
+            // Aplica el CSS del modo guardado antes de mostrar la escena
+            String modo = getModoGuardado();
+            String cssPath = modo.equalsIgnoreCase("claro") ? MODO_CLARO_PATH : MODO_OSCURO_PATH;
+            scene.getStylesheets().add(AppTricount.class.getResource(cssPath).toExternalForm());
 
+            primaryStage.setScene(scene);
         } catch (Exception e) {
             System.out.println("Error al cargar la escena: " + e.getMessage());
         }
@@ -104,5 +102,19 @@ public class AppTricount extends Application {
         }
     }
 
+    public static void cambiarModo(String cssPath) {
+        Scene scene = primaryStage.getScene();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(cssPath);
+    }
+
+    public static String getModoGuardado() {
+        String modo = Util.readFileToString(PATH + "config.txt").trim();
+        if (modo.equalsIgnoreCase("claro")) {
+            return modo;
+        } else {
+            return "oscuro";
+        }
+    }
 
 }

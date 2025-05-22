@@ -3,11 +3,13 @@ package tricount.controlador;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import saves.deudas.Util;
 import tricount.AppTricount;
 import tricount.modelo.Gasto;
 import tricount.modelo.Persona;
@@ -37,12 +39,14 @@ public class GastosController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
         lstGastos.getItems().addAll(AppTricount.gastos);
 
         lstGastos.getSelectionModel().selectedItemProperty()
-        .addListener((obs, oldSelection, gastoSeleccionado) -> {
-            GastosController.gastoSeleccionado = gastoSeleccionado;
-        });
+                .addListener((obs, oldSelection, gastoSeleccionado) -> {
+                    GastosController.gastoSeleccionado = gastoSeleccionado;
+                });
     }
 
     @FXML
@@ -54,16 +58,31 @@ public class GastosController implements Initializable {
         AppTricount.cargarEscena("Gasto");
     }
 
-    
     @FXML
     void borrarGasto(ActionEvent event) {
-        for(Persona p : AppTricount.personas){
-            if(p.gastos.contains(gastoSeleccionado)){ //No creo que haga falta poner el contains porque cada gasto es único
+        for (Persona p : AppTricount.personas) {
+            if (p.gastos.contains(gastoSeleccionado)) { // No creo que haga falta poner el contains porque cada gasto es
+                                                        // único
                 p.gastos.remove(gastoSeleccionado);
                 lstGastos.getItems().remove(gastoSeleccionado);
                 return;
             }
         }
+    }
+
+        @FXML
+    void establecerModoClaro(ActionEvent event) {
+        String css = getClass().getResource(AppTricount.MODO_CLARO_PATH).toExternalForm();
+        AppTricount.cambiarModo(css);
+        Util.writeStringToFile("claro", AppTricount.PATH + "config.txt");
+
+    }
+
+    @FXML
+    void establecerModoOscuro(ActionEvent event) {
+        String css = getClass().getResource(AppTricount.MODO_OSCURO_PATH).toExternalForm();
+        AppTricount.cambiarModo(css);
+        Util.writeStringToFile("oscuro", AppTricount.PATH + "config.txt");
     }
 
 }

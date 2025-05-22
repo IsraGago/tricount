@@ -118,7 +118,6 @@ public class Persona implements Comparable<Persona> {
         }
 
         StringBuilder resultado = new StringBuilder();
-        resultado.append("\nRESULTADO FINAL:\n");
         resultado.append(String.format("Gasto total: %.2f€%n", gastoTotal));
         resultado.append(String.format("Gasto por persona: %.2f€%n", gastoPorPersona));
         resultado.append("\nDeudas:\n");
@@ -145,7 +144,6 @@ public class Persona implements Comparable<Persona> {
             }
         }
 
-        resultado.append("\n¡Actividad finalizada!\n");
         return resultado.toString();
     }
 

@@ -3,12 +3,14 @@ package tricount.controlador;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import saves.deudas.Util;
 import tricount.AppTricount;
 import tricount.modelo.Gasto;
 import tricount.modelo.Persona;
@@ -69,6 +71,21 @@ public class AddGastoController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cbPersona.getItems().addAll(AppTricount.personas);
+    }
+
+        @FXML
+    void establecerModoClaro(ActionEvent event) {
+        String css = getClass().getResource(AppTricount.MODO_CLARO_PATH).toExternalForm();
+        AppTricount.cambiarModo(css);
+        Util.writeStringToFile("claro", AppTricount.PATH + "config.txt");
+
+    }
+
+    @FXML
+    void establecerModoOscuro(ActionEvent event) {
+        String css = getClass().getResource(AppTricount.MODO_OSCURO_PATH).toExternalForm();
+        AppTricount.cambiarModo(css);
+        Util.writeStringToFile("oscuro", AppTricount.PATH + "config.txt");
     }
 
 }

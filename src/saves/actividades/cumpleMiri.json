@@ -1,0 +1,73 @@
+[
+    {
+        "nombre": "israel",
+        "gastos": []
+    },
+    {
+        "nombre": "laura",
+        "gastos": []
+    },
+    {
+        "nombre": "andrea",
+        "gastos": []
+    },
+    {
+        "nombre": "atos",
+        "gastos": []
+    },
+    {
+        "nombre": "bruno",
+        "gastos": []
+    },
+    {
+        "nombre": "dani",
+        "gastos": []
+    },
+    {
+        "nombre": "debie",
+        "gastos": [
+            {
+                "asunto": "Jeans Stradi",
+                "importe": 27.99
+            }
+        ]
+    },
+    {
+        "nombre": "josias",
+        "gastos": []
+    },
+    {
+        "nombre": "lucas",
+        "gastos": [
+            {
+                "asunto": "Sudadera blue banana",
+                "importe": 64.4
+            }
+        ]
+    },
+    {
+        "nombre": "marcos",
+        "gastos": []
+    },
+    {
+        "nombre": "nico",
+        "gastos": []
+    },
+    {
+        "nombre": "raquel",
+        "gastos": []
+    },
+    {
+        "nombre": "sara",
+        "gastos": [
+            {
+                "asunto": "Blazer",
+                "importe": 49.99
+            }
+        ]
+    },
+    {
+        "nombre": "susana",
+        "gastos": []
+    }
+]

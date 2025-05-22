@@ -14,7 +14,7 @@
 <BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tricount.controlador.PersonasController">
 
    <top>
-      <MenuBar fx:id="menuPrincipal" styleClass="menu-bar" stylesheets="@style.css" BorderPane.alignment="CENTER">
+      <MenuBar fx:id="menuPrincipal" styleClass="menu-bar" BorderPane.alignment="CENTER">
          <menus>
             <Menu mnemonicParsing="false" text="Archivo">
                <items>
@@ -39,7 +39,7 @@
    </top>
 
    <center>
-      <AnchorPane fx:id="panelCentral" prefHeight="400.0" prefWidth="600.0" styleClass="anchor-pane" stylesheets="@style.css">
+      <AnchorPane fx:id="panelCentral" prefHeight="400.0" prefWidth="600.0" styleClass="anchor-pane">
          <children>
 
             <Label layoutX="53.0" layoutY="27.0" styleClass="titulo" text="Añadir participantes">
