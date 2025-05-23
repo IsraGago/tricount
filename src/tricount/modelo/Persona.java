@@ -59,7 +59,7 @@ public class Persona implements Comparable<Persona> {
      */
     public void mostarGastos() {
         gastos.sort((g1, g2) -> (int) (g2.getImporte() - g1.getImporte()));
-        if (gastos.size() > 0) {
+        if (!gastos.isEmpty()) {
             System.out.println(nombre);
             for (Gasto gasto : gastos) {
                 System.out.println(gasto);

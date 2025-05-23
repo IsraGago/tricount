@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -28,9 +29,7 @@ public class AppTricount extends Application {
     public static List<Gasto> getGastos() {
         List<Gasto> gastos = new ArrayList<>();
         for (Persona p : personas) {
-            for (Gasto g : p.gastos) {
-                gastos.add(g);
-            }
+            gastos.addAll(p.gastos);
         }
         return gastos;
     }
@@ -57,7 +56,7 @@ public class AppTricount extends Application {
             // Aplica el CSS del modo guardado antes de mostrar la escena
             String modo = getModoGuardado();
             String cssPath = modo.equalsIgnoreCase("claro") ? MODO_CLARO_PATH : MODO_OSCURO_PATH;
-            scene.getStylesheets().add(AppTricount.class.getResource(cssPath).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(AppTricount.class.getResource(cssPath)).toExternalForm());
 
             primaryStage.setScene(scene);
         } catch (Exception e) {

@@ -1,6 +1,7 @@
 package tricount.controlador;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
@@ -102,7 +103,7 @@ public class GastoController implements Initializable {
 
     @FXML
     void establecerModoClaro(ActionEvent event) {
-        String css = getClass().getResource(AppTricount.MODO_CLARO_PATH).toExternalForm();
+        String css = Objects.requireNonNull(getClass().getResource(AppTricount.MODO_CLARO_PATH)).toExternalForm();
         AppTricount.cambiarModo(css);
         Util.writeStringToFile("claro", AppTricount.PATH + "config.txt");
 
@@ -110,7 +111,7 @@ public class GastoController implements Initializable {
 
     @FXML
     void establecerModoOscuro(ActionEvent event) {
-        String css = getClass().getResource(AppTricount.MODO_OSCURO_PATH).toExternalForm();
+        String css = Objects.requireNonNull(getClass().getResource(AppTricount.MODO_OSCURO_PATH)).toExternalForm();
         AppTricount.cambiarModo(css);
         Util.writeStringToFile("oscuro", AppTricount.PATH + "config.txt");
     }

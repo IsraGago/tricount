@@ -101,9 +101,7 @@ public class Gasto implements Comparable<Gasto> {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((asunto == null) ? 0 : asunto.hashCode());
-        long temp;
-        temp = Double.doubleToLongBits(importe);
-        result = prime * result + (int) (temp ^ (temp >>> 32));
+        result = prime * result + Double.hashCode(importe);
         return result;
     }
 

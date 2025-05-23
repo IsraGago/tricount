@@ -2,6 +2,7 @@ package tricount.controlador;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import java.io.File;
@@ -17,6 +18,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import saves.deudas.Util;
 import tricount.AppTricount;
+import tricount.modelo.Gasto;
 import tricount.modelo.Persona;
 
 public class PersonasController implements Initializable {
@@ -139,10 +141,19 @@ public class PersonasController implements Initializable {
         File selectedFile = fileChooser.showOpenDialog(AppTricount.primaryStage);
         if (selectedFile != null) {
             Persona[] t = Util.importarArrayJson(selectedFile.toString(), Persona[].class);
+            // añade las personas.
             AppTricount.personas.clear();
             AppTricount.personas.addAll(List.of(t));
+
+            // añade la lista visual de personas
             lstPersonas.getItems().clear();
             lstPersonas.getItems().addAll(AppTricount.personas);
+
+            // añade los gastos de las personas
+            for (Persona p : t){
+                AppTricount.gastos.addAll(p.gastos);
+            }
+
         }
     }
 
@@ -161,7 +172,7 @@ public class PersonasController implements Initializable {
 
     @FXML
     void establecerModoClaro(ActionEvent event) {
-        String css = getClass().getResource(AppTricount.MODO_CLARO_PATH).toExternalForm();
+        String css = Objects.requireNonNull(getClass().getResource(AppTricount.MODO_CLARO_PATH)).toExternalForm();
         AppTricount.cambiarModo(css);
         Util.writeStringToFile("claro", AppTricount.PATH + "config.txt");
 
@@ -169,7 +180,7 @@ public class PersonasController implements Initializable {
 
     @FXML
     void establecerModoOscuro(ActionEvent event) {
-        String css = getClass().getResource(AppTricount.MODO_OSCURO_PATH).toExternalForm();
+        String css = Objects.requireNonNull(getClass().getResource(AppTricount.MODO_OSCURO_PATH)).toExternalForm();
         AppTricount.cambiarModo(css);
         Util.writeStringToFile("oscuro", AppTricount.PATH + "config.txt");
     }
