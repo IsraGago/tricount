@@ -17,9 +17,8 @@ manuel: 17,50 € -> pepe
 francisco: 15,00 € -> pepe
 francisco: 2,50 € -> jose
 
-
 Las deudas se pueden exportar a blocs de notas, para su fácil manejo y distribución por email,
-whatsapp o por donde sea necesario.
+Whatsapp o por donde sea necesario.
 
 Las actividades se pueden guardar en formato Json para después poderlas abrir de nuevo.
 
