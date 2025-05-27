@@ -15,7 +15,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
-import saves.deudas.Util;
+import tricount.modelo.Util;
 import tricount.AppTricount;
 import tricount.modelo.Persona;
 

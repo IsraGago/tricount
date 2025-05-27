@@ -13,7 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
-import saves.deudas.Util;
+import tricount.modelo.Util;
 import tricount.modelo.Gasto;
 import tricount.modelo.Persona;
 

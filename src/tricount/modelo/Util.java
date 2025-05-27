@@ -1,4 +1,4 @@
-package saves.deudas;
+package tricount.modelo;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
