@@ -138,7 +138,7 @@ public class Gasto implements Comparable<Gasto> {
      * @throws IllegalArgumentException si el importe es negativo
      */
     private double importeValido(double importe) {
-        if (importe < 0) {
+        if (importe <= 0) {
             throw new IllegalArgumentException("ERROR: El importe no puede ser 0 o negativo.");
         }
         return importe;
