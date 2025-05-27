@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 
 import java.io.File;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,7 +17,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import saves.deudas.Util;
 import tricount.AppTricount;
-import tricount.modelo.Gasto;
 import tricount.modelo.Persona;
 
 public class PersonasController implements Initializable {
