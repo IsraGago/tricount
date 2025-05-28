@@ -1,9 +1,0 @@
-RESULTADO FINAL:
-Gasto total: 40,00€
-Gasto por persona: 10,00€
-
-Deudas:
-isra: 10,00 € -> delio
-mario: 10,00 € -> delio
-
-
